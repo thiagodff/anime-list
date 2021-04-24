@@ -6,7 +6,7 @@ const contextConfig = require('./config/context')
 
 
 module.exports = (
-	/** @type {import('plop').NodePlopAPI} */
+  /** @type {import('plop').NodePlopAPI} */
   plop) => {
   plop.setGenerator('component', componentConfig);
 
