@@ -11,3 +11,13 @@ Antigamente as pessoas jogavam esses dados no Redux e lidavam dessa forma para c
 Hoje em dia temos abordagens e bibliotecas mais simples como React Query e o SWR para tratar o server side state.
 
 O SWR é uma lib da Vercel que integra muito bem com o React e com o Next, porém, o React Query também funciona muito bem e oferece mais funcionalidades, sendo assim, mais utilizada.
+
+## Instalando
+
+```ts
+yarn add react-query
+```
+
+## Funcionamento
+
+O react query contém um query client que é um objeto você instância na sua aplicação, um singleton que pode ser acessado em qualquer lugar da aplicação
