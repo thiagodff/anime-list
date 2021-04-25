@@ -21,3 +21,7 @@ yarn add react-query
 ## Funcionamento
 
 O react query contém um query client que é um objeto você instância na sua aplicação, um singleton que pode ser acessado em qualquer lugar da aplicação
+
+## React Query Devtools
+
+Ele verifica se o node env é production, ou seja, não precisa se preocupar em tratar o dev tools na hora do build

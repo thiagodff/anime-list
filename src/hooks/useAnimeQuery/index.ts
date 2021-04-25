@@ -12,4 +12,7 @@ export const fetchAnime = async (ctx: QueryFunctionContext) => {
 };
 
 export const useAnimeQuery = (animeId: string) =>
-  useQuery<AnimeResponse, ApiError>(`anime-${animeId}`, fetchAnime);
+  useQuery<AnimeResponse, ApiError>(`anime-${animeId}`, fetchAnime, {
+    // stale time e o tempo que deve esperar ate realizar um novo fetch
+    staleTime: Infinity,
+  });
