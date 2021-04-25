@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 
-import { TopAiringAnime, TopAiringResponse } from "@common/types/api";
-import { api } from "@services";
 import { AnimeCard } from "@components";
 import { generateArray } from "@utils";
 import AnimeCardLoading from "@components/AnimeCard/Loading";

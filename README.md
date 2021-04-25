@@ -29,3 +29,8 @@ Ele verifica se o node env é production, ou seja, não precisa se preocupar em 
 ## Salvar os caches de forma persistente
 
 O [persistQueryClient](https://react-query.tanstack.com/plugins/persistQueryClient) ainda está na versão beta, sendo assim, devemos utilizá-lo com ressalvas
+
+## Existem duas coisas que sempre quebramos a cabeça
+
+1. Nomear variáveis
+2. Invalidar cache
