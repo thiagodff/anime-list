@@ -25,3 +25,7 @@ O react query contém um query client que é um objeto você instância na sua a
 ## React Query Devtools
 
 Ele verifica se o node env é production, ou seja, não precisa se preocupar em tratar o dev tools na hora do build
+
+## Salvar os caches de forma persistente
+
+O [persistQueryClient](https://react-query.tanstack.com/plugins/persistQueryClient) ainda está na versão beta, sendo assim, devemos utilizá-lo com ressalvas

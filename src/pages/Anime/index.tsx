@@ -18,6 +18,9 @@ const Anime = () => {
     return <AnimeLoading />;
   }
 
+  // você tem acesso ao erro como response do Axios, como foi definido no hook
+  // animeQuery.error?.message;
+
   const anime = animeQuery.data;
 
   return (
