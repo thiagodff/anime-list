@@ -10,6 +10,7 @@ import { generateArray } from "@utils";
 import AnimeCardLoading from "@components/AnimeCard/Loading";
 
 import * as S from "./styles";
+import { usePaginatedCategoriesQuery } from "@hooks";
 
 type RouteParams = {
   category: string;
@@ -19,30 +20,16 @@ type RouteParams = {
 const Categories = () => {
   const { category, sub_category } = useParams<RouteParams>();
 
-  const [data, setData] = useState([] as TopAiringAnime[]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
 
   const handlePageNavigation = (page: { selected: number }) =>
     setCurrentPage(page.selected + 1);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        setIsLoading(true);
-
-        const response = await api.get<TopAiringResponse>(
-          `/${category}/anime/${currentPage}/${sub_category}`
-        );
-
-        setData(response.data.top);
-      } catch (err) {
-        console.warn(err);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, [category, currentPage, sub_category]);
+  const categoryQuery = usePaginatedCategoriesQuery(
+    category,
+    sub_category,
+    currentPage
+  );
 
   return (
     <S.Container>
@@ -51,11 +38,11 @@ const Categories = () => {
       </h1>
 
       <S.AnimeGrid>
-        {isLoading
+        {categoryQuery.isLoading
           ? generateArray(8).map((position) => (
               <AnimeCardLoading key={position} />
             ))
-          : data.map((anime) => <AnimeCard key={anime.mal_id} anime={anime} />)}
+          : categoryQuery.data?.map((anime) => <AnimeCard key={anime.mal_id} anime={anime} />)}
       </S.AnimeGrid>
 
       <S.Pagination>
