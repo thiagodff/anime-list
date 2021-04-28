@@ -34,3 +34,10 @@ O [persistQueryClient](https://react-query.tanstack.com/plugins/persistQueryClie
 
 1. Nomear variáveis
 2. Invalidar cache
+
+## Desvantagens
+
+- Saber trabalhar bem com invalidação de cache, que por padrão é algo complicado de se fazer.
+- A estratégia usada pode ser muito custosa, como no exemplo do anime card em que só de passar o mouse por cima ele realiza o prefetch dos dados.
+- Times muitos grandes em que alguém em algum momento pode não cuidar muito bem na lógica da implementação de uma nova query.
+- Utilizar sem cuidado com a lógica da implementação
