@@ -3,7 +3,7 @@ import { QueryFunctionContext, useQuery } from 'react-query';
 import { AnimeResponse, ApiError } from '@common/types/api';
 import { api } from '@services';
 
-export const fetchAnime = async (ctx: QueryFunctionContext<string[]>) => {
+export const fetchAnime = async (ctx: QueryFunctionContext<Array<string | number>>) => {
   const [, animeId] = ctx.queryKey;
 
   const { data } = await api.get<AnimeResponse>(`/anime/${animeId}`);
@@ -12,7 +12,7 @@ export const fetchAnime = async (ctx: QueryFunctionContext<string[]>) => {
 };
 
 export const useAnimeQuery = (animeId: string) =>
-  useQuery<AnimeResponse, ApiError, AnimeResponse, string[]>(
+  useQuery<AnimeResponse, ApiError, AnimeResponse, Array<string | number>>(
     ['anime', animeId],
     fetchAnime,
     {
